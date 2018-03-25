@@ -1,0 +1,104 @@
+/** css reset
+   把DOM中默认的样式去掉 统一起来
+ */
+/**
+        *: 会对应所有元素
+        margin : 一个元素所有外边距的宽度
+        padding: 所有内边距的宽度,或者设置各边上内边距的宽度
+        背景、字体
+        cursor:光标的样式
+        position:元素的位置 relative 相对于其他元素定位
+        text-decoration：定义文本下划线
+        :hover 选择器用于选择鼠标指针浮动在上面的元素。鼠标在上面时该元素的样式
+        border：边框
+        vertical-align：对齐方式
+        outline:元素外围的轮廓 可以非矩形
+        opacity:元素的不透明级别，从 0.0 （完全透明）到 1.0（完全不透明）。
+ */
+*{
+    margin  : 0;
+    padding : 0;
+}
+body{
+    background: white;
+    font: 12px/1.5 Tahoma,Arial, Microsoft YaHei UI,sans-serif;
+}
+li{
+    list-style: none;
+}
+image{
+    display: block;
+    border: none;
+}
+label{
+    cursor: pointer;
+}
+input[type='checkbox']{
+    cursor: pointer;
+}
+/*定宽布局*/
+.w{
+    width: 1080px;
+    margin: 0 auto;
+    position: relative;
+    /*清除浮动*/
+    overflow: hidden;
+}
+.large.w{
+    width: 1600px;
+}
+/*全局通用样式 链接 常用工具（隐藏元素）*/
+.hide{
+    display: none;
+}
+.link{
+    color: #999;
+    cursor: pointer;
+    text-decoration: none;
+}
+.link:hover{
+    color: #e80012;
+}
+.link-test{
+    color: #999;
+    text-decoration: none;
+}
+/*button样式*/
+.btn{
+    display: inline-block;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    background: #c60023;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    vertical-align: middle;
+    outline: none;
+}
+/*在html标签里使用 btn btn-mini来继承*/
+.btn-mini{
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+    padding: 0 10px;
+}
+/*loading图标*/
+.loading{
+    margin: 10px auto;
+    display: block;
+    width: 65px;
+    height: 65px;
+    border: 1px solid #ddd;
+    background: url("../../image/icon/loading.gif");
+    border-radius: 5px;
+    opacity: .6;
+}
+.fa-user{
+    width: 25px;
+    height: 25px;
+    color: red;
+}
