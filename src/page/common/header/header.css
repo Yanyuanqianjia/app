@@ -1,0 +1,36 @@
+/*通用导航*/
+/*
+    css两个样式相连表示，空格表示为继承，即
+        .header.logo 样式同时为header logo
+        .header .logo 样式表示 logo为header内标签时的样式
+
+
+*/
+.header .logo{
+    position: absolute;
+    display: block;
+    left: 50px;
+    top: 34px;
+    font-weight: bold;
+    font-size: 36px;
+    color: #c60023;
+
+}
+
+.header .search-con{
+    padding: 40px 0 30px 250px;
+}
+.header .search-con .search-input{
+    width: 550px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 15px;
+    font-size: 15px ;
+    border: 2px solid #c60023;
+    outline: none;
+}
+.header .search-con .search-button{
+    position: absolute;
+    height: 44px;
+    width: 80px;
+}

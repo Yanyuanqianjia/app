@@ -6,11 +6,14 @@
     <title>mmal</title>
 </head>
 <body>
-    <font size="7"> 魔兽世界阿达撒阿达是啊实打实</font>
-    <a class="link">11111111111111</a>
-    <a class="link-text">11111111111111</a>
-    <i class="fa fa-user"></i>
-
+    <%= require('html-loader!./layout/nav.html')%>
+    <%= require('html-loader!./layout/header.html')%>
+    <div class="page-wrap w">
+        <!--导航-->
+        <%= require('html-loader!./layout/nav-side.html')%>
+        <!--内容区 带有侧边栏的内容区-->
+        <div class="content with-nav">test</div>
+    </div>
     <%= require('html-loader!./layout/foot-common.html')%>
 </body>
 </html>

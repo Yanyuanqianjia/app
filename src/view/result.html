@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%= require('html-loader!./layout/head-common.html')%>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title%></title>
+</head>
+<body>
+<%= require('html-loader!./layout/nav.html')%>
+<%= require('html-loader!./layout/header.html')%>
+<div class="page-wrap w">
+    <!--导航-->
+    <%= require('html-loader!./layout/nav-side.html')%>
+    <!--内容区 带有侧边栏的内容区-->
+    <div class="content with-nav">test</div>
+</div>
+<%= require('html-loader!./layout/foot-common.html')%>
+</body>
+</html>

@@ -15,13 +15,14 @@ var path              = require("path");
 // var ExtractImgPlugin  = require('url-loader')
 
 //配置函数 获取html-webpack-plugin所有参数的
-var getHtmlConfig =function (name) {
+var getHtmlConfig =function (name,title) {
     return {
         template : './src/view/'+name+'.html',//HTML原始模板
         filename : 'view/'+name+'.html',//目标文件的位置
         inject:true,//指定HTML中插入js文件的位置，true->body底部；head->head中....
         hash:true,
-        chunks:['common',name]//指定引入的css或者js文件，如果不指定，则默认引入所有的js文件
+        chunks:['common',name],//指定引入的css或者js文件，如果不指定，则默认引入所有的js文件
+        title: title,
     }
 }
 
@@ -31,7 +32,8 @@ var config = {
                                                 //后面的这部分内容在打包的时候需要去掉，否则会一直报错
         'common': ['./src/page/common/index.js','webpack-dev-server/client?http://localhost:8088/'],
         'index' : ['./src/page/index/index.js'],
-        'login' : ['./src/page/login/index.js']
+        'login' : ['./src/page/login/index.js'],
+        'result' : ['./src/page/result/index.js'],
     },
     output:{
         // path:'./dist',//跟
@@ -57,8 +59,8 @@ var config = {
     module:{
         loaders:[
             {test:/\.css$/,loader:ExtractTextPlugin.extract("style-loader",'css-loader')},//以 ！ 连接，会从左到右依次加载
-            {test:/\.(gif|png|woff|jpg|svg|eot|ttf)\??.*$/,loader:'url-loader?limit=100&name=images/[hash:8].[name].[ext]'}//limit 限制图片的大小，如果大于100,则以文件的形式存放，否则以base64存放在js文件中
-
+            {test:/\.(gif|png|woff|jpg|svg|eot|ttf)\??.*$/,loader:'url-loader?limit=100&name=images/[hash:8].[name].[ext]'},//limit 限制图片的大小，如果大于100,则以文件的形式存放，否则以base64存放在js文件中
+            {test:/\.string$/,loader:'html-loader'},//以 ！ 连接，会从左到右依次加载
         ],
     },
     //配置别名
@@ -87,9 +89,10 @@ var config = {
             // inject:true,//指定HTML中插入js文件的位置，true->body底部；head->head中....
             // hash:true,
             // trunks:['common','index']//指定引入的css或者js文件，如果不指定，则默认引入所有的js文件
-            getHtmlConfig('index')
+            getHtmlConfig('index',"首页")
         ),
-        new HtmlWebpackPlugin(getHtmlConfig('login'))
+        new HtmlWebpackPlugin(getHtmlConfig('login',"用户登录")),
+        new HtmlWebpackPlugin(getHtmlConfig('result',"操作结果"))
     ],
 
 };

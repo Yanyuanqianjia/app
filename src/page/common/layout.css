@@ -22,6 +22,7 @@
 body{
     background: white;
     font: 12px/1.5 Tahoma,Arial, Microsoft YaHei UI,sans-serif;
+
 }
 li{
     list-style: none;
@@ -59,7 +60,7 @@ input[type='checkbox']{
 .link:hover{
     color: #e80012;
 }
-.link-test{
+.link-text{
     color: #999;
     text-decoration: none;
 }
