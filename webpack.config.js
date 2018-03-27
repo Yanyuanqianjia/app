@@ -21,6 +21,7 @@ var getHtmlConfig =function (name,title) {
         filename : 'view/'+name+'.html',//目标文件的位置
         inject:true,//指定HTML中插入js文件的位置，true->body底部；head->head中....
         hash:true,
+        favicon   : './favicon.ico',
         chunks:['common',name],//指定引入的css或者js文件，如果不指定，则默认引入所有的js文件
         title: title,
     }
@@ -59,7 +60,7 @@ var config = {
     module:{
         loaders:[
             {test:/\.css$/,loader:ExtractTextPlugin.extract("style-loader",'css-loader')},//以 ！ 连接，会从左到右依次加载
-            {test:/\.(gif|png|woff|jpg|svg|eot|ttf)\??.*$/,loader:'url-loader?limit=100&name=images/[hash:8].[name].[ext]'},//limit 限制图片的大小，如果大于100,则以文件的形式存放，否则以base64存放在js文件中
+            {test:/\.(gif|png|woff|jpg|ico|svg|eot|ttf)\??.*$/,loader:'url-loader?limit=100&name=images/[hash:8].[name].[ext]'},//limit 限制图片的大小，如果大于100,则以文件的形式存放，否则以base64存放在js文件中
             {test:/\.string$/,loader:'html-loader'},//以 ！ 连接，会从左到右依次加载
         ],
     },
